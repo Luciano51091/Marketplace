@@ -27,7 +27,6 @@ const renderTable = (products) => {
   const tdbody = document.getElementById("admin-list");
 
   const rows = products.map((product) => {
-    // Formattazione prezzo in Euro
     const formattedPrice = new Intl.NumberFormat("it-IT", {
       style: "currency",
       currency: "EUR",

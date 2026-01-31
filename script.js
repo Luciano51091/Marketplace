@@ -27,10 +27,11 @@ const getProducts = async () => {
 const renderProducts = (products) => {
   container.innerHTML = products
     .map((product) => {
+      const rawPrice = Number(product.price);
       const formattedPrice = new Intl.NumberFormat("it-IT", {
         style: "currency",
         currency: "EUR",
-      }).format(product.price);
+      }).format(rawPrice);
 
       return `
       <div class="col-12 col-md-6 col-lg-4 col-xl-3">
