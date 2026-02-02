@@ -3,55 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Backoffice</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-      crossorigin="anonymous"
-      defer
-    ></script>
+    <title>VeloLabs - Backoffice</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="backoffice.js" defer></script>
   </head>
-  <body>
+  <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top mb-5">
       <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="index.html">
           <img
             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6vDLqQ0iqkyb_ieLjdldYkvfEwgLGdiquSQ&s"
             alt="Logo"
-            width="85"
-            height="85"
+            width="55"
+            height="55"
             class="me-3"
           />
-          <span class="fw-bold fst-italic fs-3">Velo<span class="text-primary fst-italic">Labs</span></span>
+          <span class="fw-bold brand-text fs-3">Velo<span class="text-primary">Labs</span></span>
         </a>
-
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
           <span class="navbar-toggler-icon"></span>
         </button>
-
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto align-items-center">
-            <li class="nav-item">
-              <a class="nav-link active" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="backoffice.html">Gestione</a>
-            </li>
+            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+            <li class="nav-item"><a class="nav-link active fw-bold" href="backoffice.html">Gestione</a></li>
             <li class="nav-item ms-lg-3">
-              <a class="btn btn-dark position-relative rounded-pill px-3" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-cart3 me-1" viewBox="0 0 16 16">
-                  <path
-                    d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
-                  />
-                </svg>
-                Carrello
+              <a class="btn btn-dark btn-cart position-relative rounded-pill px-3" href="#">
+                <i class="bi bi-cart3 me-1"></i> Carrello
                 <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"> 0 </span>
               </a>
             </li>
@@ -60,57 +42,86 @@
       </div>
     </nav>
 
-    
-      <!-- FORM PER L'AGGIUNTA DI UN NUOVO PRODOTTO -->
+    <main class="container mb-5 pb-5">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="sticky-top" style="top: 100px; z-index: 10">
+            <div class="card border-0 shadow-sm p-4 rounded-4">
+              <h4 class="fw-bold mb-4"><i class="bi bi-plus-circle me-2"></i>Nuovo Prodotto</h4>
+              <form id="product-form">
+                <div class="mb-3">
+                  <label for="name" class="form-label small fw-bold">Nome</label>
+                  <input type="text" id="name" class="form-control shadow-none" placeholder="Es: Bici da corsa X1" required />
+                </div>
+                <div class="mb-3">
+                  <label for="brand" class="form-label small fw-bold">Marca</label>
+                  <input type="text" id="brand" class="form-control shadow-none" placeholder="Es: Specialized" required />
+                </div>
+                <div class="mb-3">
+                  <label for="description" class="form-label small fw-bold">Descrizione</label>
+                  <textarea id="description" class="form-control shadow-none" rows="3" required></textarea>
+                </div>
+                <div class="mb-3">
+                  <label for="imageUrl" class="form-label small fw-bold">URL Immagine</label>
+                  <input type="url" id="imageUrl" class="form-control shadow-none" required />
+                </div>
+                <div class="mb-3">
+                  <label for="price" class="form-label small fw-bold">Prezzo (€)</label>
+                  <input type="number" step="0.01" class="form-control shadow-none" id="price" placeholder="Esempio: 1500.50" required />
+                  <div class="form-text extra-small">Usa il punto per i decimali.</div>
+                </div>
+                <button type="submit" class="btn btn-primary w-100 rounded-pill fw-bold py-2 mt-2" id="submit-btn">Salva Prodotto</button>
+              </form>
+            </div>
+          </div>
+        </div>
 
-      <div class="container mt-5">
-        <h3 class="mb-4">Aggiungi un nuovo prodotto</h3>
-
-        <form id="product-form" class="bg-light p-4 rounded shadow-sm">
-          <div class="mb-3">
-            <label for="name" class="form-label">Nome</label>
-            <input type="text" id="name" class="form-control" required />
+        <div class="col-lg-8">
+          <div class="card border-0 shadow-sm p-4 rounded-4">
+            <h4 class="fw-bold mb-4"><i class="bi bi-list-task me-2"></i>Inventario</h4>
+            <div class="table-responsive">
+              <table class="table table-hover align-middle">
+                <thead class="table-light">
+                  <tr class="small text-uppercase">
+                    <th>Immagine</th>
+                    <th>Prodotto</th>
+                    <th>Prezzo</th>
+                    <th class="text-end">Azioni</th>
+                  </tr>
+                </thead>
+                <tbody id="admin-list"></tbody>
+              </table>
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="description" class="form-label">Descrizione</label>
-            <textarea id="description" class="form-control" required></textarea>
-          </div>
-          <div class="mb-3">
-            <label for="brand" class="form-label">Marca</label>
-            <input type="text" id="brand" class="form-control" required />
-          </div>
-          <div class="mb-3">
-            <label for="imageUrl" class="form-label">URL Immagine</label>
-            <input type="url" id="imageUrl" class="form-control" required />
-          </div>
-          <div class="mb-3">
-            <label for="price" class="form-label fw-bold">Prezzo (€)</label>
-            <input type="number" step="0.01" class="form-control" id="price" placeholder="Esempio: 1500.50" required />
-            <div class="form-text">Usa il punto per i decimali (es. 15.50). Non inserire punti per le migliaia.</div>
-          </div>
-          <button type="submit" class="btn btn-primary" id="submit-btn">Aggiungi Prodotto</button>
-        </form>
+        </div>
       </div>
-    </div>
+    </main>
 
-    <!-- TABELLA PER LA GESTIONE DEI PRODOTTI -->
-
-    <div class="container mt-5">
-      <h3 class="mb-4">Gestione Prodotti</h3>
-
-      <div class="table-responsive">
-        <table class="table table-hover align-middle">
-          <thead class="table-primary">
-            <tr>
-              <th>Immagine</th>
-              <th>Prodotto</th>
-              <th>Prezzo</th>
-              <th class="text-end">Azioni</th>
-            </tr>
-          </thead>
-          <tbody id="admin-list"></tbody>
-        </table>
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-md-4">
+            <h5 class="text-uppercase fw-bold mb-4 brand-text">Velo<span class="text-primary">Labs</span></h5>
+            <p class="text-secondary small">Il tuo punto di riferimento per il ciclismo d'avanguardia.</p>
+          </div>
+          <div class="col-md-4">
+            <h6 class="text-uppercase fw-bold mb-4 border-bottom border-primary pb-2 d-inline-block">Contatti</h6>
+            <p class="text-secondary small mb-1"><i class="bi bi-geo-alt me-2"></i> Via Roma 12, Milano</p>
+            <p class="text-secondary small mb-1"><i class="bi bi-envelope me-2"></i> info@velolabs.it</p>
+          </div>
+          <div class="col-md-4 text-md-end">
+            <h6 class="text-uppercase fw-bold mb-4">Social</h6>
+            <div class="d-flex justify-content-md-end gap-3">
+              <a href="#!" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+              <a href="#!" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+              <a href="#!" class="text-white fs-4"><i class="bi bi-twitter-x"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="text-center p-3 border-top border-secondary mt-4">
+          <span class="text-secondary small">© 2026 VeloLabs.it</span>
+        </div>
       </div>
-    </div>
+    </footer>
   </body>
 </html>

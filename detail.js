@@ -24,33 +24,50 @@ getDetails();
 
 function renderDetails(product) {
   const container = document.getElementById("details-container");
+
   const finalPrice = new Intl.NumberFormat("it-IT", {
     style: "currency",
     currency: "EUR",
   }).format(product.price);
 
   container.innerHTML = `
-        <div class="row mt-5">
-            <div class="col-md-6 text-center">
-                <img src="${product.imageUrl}" class="img-fluid rounded shadow-lg p-4 bg-light" alt="${product.name}" style="max-height: 500px; object-fit: contain;">
-            </div>
-            <div class="col-md-6">
-                <h1 class="display-4 fw-bold">${product.name}</h1>
-                <p class="text-muted h4">Brand: ${product.brand}</p>
-                <hr>
-                <p class="lead text-secondary">${product.description}</p>
-                <h2 class="text-dark fw-bold my-4">${finalPrice}</h2>
-                
-                <div class="d-grid gap-3">
-                    <button id="add-btn" class="btn btn-outline-dark fw-bold rounded-pill">Aggiungi al carrello</button>
-                    
-                    <button id="clear-btn" class="btn btn-outline-danger rounded-pill">Svuota carrello</button>
-                    
-                    
-                </div>
+    <div class="row mt-5 align-items-center justify-content-center">
+        <div class="col-md-5 col-lg-4 text-center mb-4">
+            <div class="p-4 bg-light rounded-4 shadow-sm">
+                <img src="${product.imageUrl}" 
+                     class="img-fluid transition-hover" 
+                     alt="${product.name}" 
+                     style="max-height: 350px; object-fit: contain;">
             </div>
         </div>
-    `;
+
+        <div class="col-md-6 ps-md-5">
+            <p class="text-uppercase text-primary fw-bold small mb-1">${product.brand}</p>
+            <h1 class="display-5 fw-bold mb-3">${product.name}</h1>
+            
+            <p class="lead text-muted mb-4" style="font-size: 1.1rem; line-height: 1.6;">
+                ${product.description.length > 250 ? product.description.substring(0, 250) + "..." : product.description}
+            </p>
+            
+            <h2 class="fw-bold mb-4">${finalPrice}</h2>
+            
+            <div class="d-grid gap-3 d-md-flex">
+                <button id="add-btn" class="btn btn-dark btn-lg px-5 rounded-pill shadow-sm animate-cart">
+                    Aggiungi al carrello
+                </button>
+                <button id="clear-btn" class="btn btn-outline-danger rounded-pill px-4">
+                    Svuota
+                </button>
+            </div>
+            
+            <div class="mt-4 pt-4 border-top">
+                <a href="index.html" class="text-decoration-none text-dark fw-bold">
+                    ← Torna allo shop
+                </a>
+            </div>
+        </div>
+    </div>
+  `;
 
   document.getElementById("add-btn").onclick = () => addToCart(product);
   document.getElementById("clear-btn").onclick = () => clearCart();

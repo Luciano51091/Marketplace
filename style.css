@@ -28,3 +28,23 @@
   transform: translateY(-10px) scale(1.02);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
+
+footer a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+footer a:hover {
+  color: #0d6efd !important;
+  transform: translateY(-5px);
+}
+
+footer a .bi-instagram:hover {
+  color: #e1306c !important;
+}
+footer a .bi-facebook:hover {
+  color: #1877f2 !important;
+}
+footer a .bi-twitter-x:hover {
+  color: #000000 !important;
+}
