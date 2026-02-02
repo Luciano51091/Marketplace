@@ -46,7 +46,7 @@ function renderDetails(product) {
                     
                     <button id="clear-btn" class="btn btn-outline-danger rounded-pill">Svuota carrello</button>
                     
-                    <a href="index.html" class="btn btn-outline-secondary rounded-pill">Torna alla Home</a>
+                    
                 </div>
             </div>
         </div>

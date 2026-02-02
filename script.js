@@ -34,8 +34,8 @@ const renderProducts = (products) => {
       }).format(rawPrice);
 
       return `
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3">
-        <div class="card h-100 shadow-sm border-0 transition-hover">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-2">
+        <div class="card h-100 shadow-sm border-1 transition-hover">
           <img src="${product.imageUrl}" class="card-img-top p-3" alt="${product.name}" style="height: 200px; object-fit: contain;">
           <div class="card-body d-flex flex-column">
             <h6 class="text-uppercase text-muted small fw-bold mb-1">${product.brand}</h6>
